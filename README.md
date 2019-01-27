@@ -2,7 +2,7 @@
 
 A starter for the MERN stack with an implementation of GraphQL with Apollo
 
-##.env file
+## .env file
 
 ```
 # Api Information
