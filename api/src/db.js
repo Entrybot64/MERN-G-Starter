@@ -1,9 +1,7 @@
 import mongoose from 'mongoose'
 
-const connect = () =>
+export default () =>
 	mongoose.connect(
 		`${process.env.DB_URL}/${process.env.DB_NAME}`,
 		{ useNewUrlParser: true }
 	)
-
-export default connect()

@@ -4,7 +4,7 @@ import schema from './schema'
 
 export default (app) =>
 	app.use(
-		'/api',
+		'/graphql',
 		bodyParser.json(),
 		graphqlExpress({
 			schema: schema,
