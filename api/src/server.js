@@ -27,7 +27,7 @@ let listen = () => {
 
 app.use(
 	cors({
-		origin: process.env.DOMAIN,
+		origin: process.env.CORS_DOMAIN,
 		optionsSuccessStatus: 200
 	})
 )

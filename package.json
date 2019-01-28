@@ -4,7 +4,9 @@
 	"description": "A starter for the MERN stack with an implementation of GraphQL with Apollo",
 	"main": "index.js",
 	"scripts": {
-		"start": "nodemon API/src/app.js --exec babel-node"
+		"start-api": "nodemon api/src/app.js --exec babel-node --config-gile api/.babelrc",
+		"start-app": "cd app && npm start",
+		"start": "concurrently \"npm run start-app\" \"npm run start-api\""
 	},
 	"repository": {
 		"type": "git",
@@ -21,18 +23,24 @@
 		"@babel/core": "^7.2.2",
 		"@babel/node": "^7.2.2",
 		"@babel/preset-env": "^7.3.1",
+		"@babel/preset-react": "^7.0.0",
 		"@babel/register": "^7.0.0",
 		"body-parser": "^1.18.3",
 		"graphql": "^14.1.1",
 		"graphql-tools": "^4.0.4",
-		"lodash": "^4.17.11",
-		"nodemon": "^1.18.9"
+		"nodemon": "^1.18.9",
+		"react": "^16.7.0",
+		"react-dom": "^16.7.0",
+		"react-router-dom": "^4.3.1"
 	},
 	"dependencies": {
 		"chalk": "^2.4.2",
+		"concurrently": "^4.1.0",
 		"cors": "^2.8.5",
 		"dotenv": "^6.2.0",
 		"express": "^4.16.4",
-		"express-graphql": "^0.7.1"
+		"express-graphql": "^0.7.1",
+		"lodash": "^4.17.11",
+		"mongoose": "^5.4.7"
 	}
 }
