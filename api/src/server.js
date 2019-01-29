@@ -1,27 +1,38 @@
 import express from 'express'
 import cors from 'cors'
-
-import graphql from './graphql'
+import fs from 'fs'
 
 import dotenv from 'dotenv'
 
-dotenv.config()
+//	Generate .env file if it doesn't exist
+if (!fs.existsSync(`.env`)) {
+	console.log('File .env not found, generating from example')
+	fs.copyFileSync(`.env.example`, `.env`)
+}
 
+dotenv.config()
 const app = express()
 
-let setPort = (port = 5000) => {
+/**
+ * Define port for the API server to listen
+ * @param {number} port
+ */
+let setPort = (port = process.env.PORT) => {
 	app.set('port', parseInt(port, 10))
 }
 
+/**
+ *	Make the server listen on defined port
+ *	or port in .env
+ */
 let listen = () => {
-	const port = app.get('port') || process.env.PORT || 5000
+	const port = app.get('port') || process.env.PORT
 	app.listen(port, () => {
-		console.log(
-			`Listening on http://${process.env.DOMAIN}:${process.env.PORT}`
-		)
+		console.log(`Listening on http://${process.env.DOMAIN}:${process.env.PORT}`)
 	})
 }
 
+//	Allow API to respond to only the APP domain
 app.use(
 	cors({
 		origin: process.env.CORS_DOMAIN,
@@ -29,11 +40,10 @@ app.use(
 	})
 )
 
+//	Healthcheck
 app.get('/status', (req, res) => {
 	res.send({ status: 'ok' })
 })
-
-graphql(app)
 
 export default {
 	getApp: () => app,

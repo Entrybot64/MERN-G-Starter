@@ -1,0 +1,18 @@
+[
+	{
+		"name": "Express",
+		"description": "Web Server"
+	},
+	{
+		"name": "Mongoose",
+		"description": "Mongo Schema DBMS"
+	},
+	{
+		"name": "GraphQL",
+		"description": "API query language"
+	},
+	{
+		"name": "React",
+		"description": "Front-End Ractive framework"
+	}
+]

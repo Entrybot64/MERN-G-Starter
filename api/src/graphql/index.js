@@ -2,9 +2,9 @@ import bodyParser from 'body-parser'
 import graphqlExpress from 'express-graphql'
 import schema from './schema'
 
-export default (app) =>
+export default (app, route) =>
 	app.use(
-		'/graphql',
+		route,
 		bodyParser.json(),
 		graphqlExpress({
 			schema: schema,
