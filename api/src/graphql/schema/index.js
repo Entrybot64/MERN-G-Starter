@@ -27,7 +27,7 @@ const typeDefs = [Query, Mutation]
 fs.readdirSync(__dirname)
 	.filter((dir) => dir.indexOf('.') < 0)
 	.forEach((dir) => {
-		const tmp = require(path.join(__dirname, dir)).default // eslint-disable-line
+		const tmp = require(path.join(__dirname, dir)).default
 		resolvers = merge(resolvers, tmp.resolvers)
 		typeDefs.push(tmp.types)
 	})

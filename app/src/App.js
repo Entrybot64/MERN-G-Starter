@@ -32,7 +32,7 @@ class App extends Component {
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify({
-				query: 'query {frameworks { _id name description }}'
+				query: 'query {frameworks { name description }}'
 			})
 		})
 			.then((response) => {
@@ -52,14 +52,14 @@ class App extends Component {
 				<header className="App-header">
 					<img src={logo} className="App-logo" alt="logo" />
 					<p>
-						Welcome to the MERN-G Stack. This a fully fledged MERN boilerplate with
-						GraphQL integration.
+						Welcome to the MERN-G Stack. This a fully fledged MERN
+						boilerplate with GraphQL integration.
 					</p>
 					<p>This app was made with</p>
 					<ul>
 						{this.state.frameworks.map((framework) => {
 							return (
-								<li key={framework._id}>
+								<li key={framework.name}>
 									{framework.name}, {framework.description}
 								</li>
 							)

@@ -4,7 +4,7 @@
 	"description": "A starter for the MERN stack with an implementation of GraphQL with Apollo",
 	"main": "index.js",
 	"scripts": {
-		"start-api": "nodemon api/src/app.js --exec babel-node --config-gile api/.babelrc",
+		"start-api": "nodemon api/src/app.js --ignore app/ --exec babel-node --config-gile api/.babelrc",
 		"start-app": "cd app && npm start",
 		"start": "concurrently --names 'Client','Server' -c 'blue,green' \"npm run start-app\" \"npm run start-api\""
 	},
