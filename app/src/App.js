@@ -11,9 +11,14 @@ class App extends Component {
 			frameworks: []
 		}
 
+		this.getVersion = this.getVersion.bind(this)
 		this.getFrameworks = this.getFrameworks.bind(this)
 	}
 	componentDidMount() {
+		this.getVersion()
+		this.getFrameworks()
+	}
+	getVersion() {
 		fetch('http://localhost:8080/').then((data) => {
 			data.json().then((data) => {
 				this.setState({
@@ -21,14 +26,12 @@ class App extends Component {
 				})
 			})
 		})
-
-		this.getFrameworks()
 	}
 	getFrameworks() {
 		fetch('http://localhost:8080/graphql', {
 			method: 'POST',
 			headers: {
-				Accept: 'application/json',
+				'Accept': 'application/json',
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify({

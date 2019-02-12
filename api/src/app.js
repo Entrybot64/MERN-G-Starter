@@ -1,7 +1,7 @@
 import server from './server'
 import database from './db'
 
-import Framework from './mongoose/models/framework'
+import Framework, { verifyFramework } from './mongoose/models/Framework'
 import frameworkSeeds from './mongoose/seeds/Frameworks.json'
 
 import seed from './seed'

@@ -1,4 +1,4 @@
-import Framework from '../../../mongoose/models/framework'
+import Framework from '../../../mongoose/models/Framework'
 
 const Query = `
  extend type Query {
